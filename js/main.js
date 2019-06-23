@@ -9,10 +9,14 @@
             var boxProduct = document.createElement('div');
             boxProduct.classList.add('box-product');
 
+            var boxProductBoxImg = document.createElement('div');
+            boxProductBoxImg.classList.add('box-product__box-img');
+            boxProduct.appendChild(boxProductBoxImg);
+
             var boxProductImg = document.createElement('img');
             boxProductImg.classList.add('box-product__img');
 
-            boxProduct.appendChild(boxProductImg);
+            boxProductBoxImg.appendChild(boxProductImg);
             boxProductImg.setAttribute('src','http:'+ product.image);
 
             var boxProductName = document.createElement('p');
@@ -27,16 +31,16 @@
 
             var boxProductOldPrice = document.createElement('p');
             boxProductOldPrice.classList.add('box-product__old-price');
-            boxProductOldPrice.innerHTML=product.oldPrice;
+            boxProductOldPrice.innerHTML='De: '+product.oldPrice.toLocaleString("pt-BR", { style: "currency" , currency:"BRL"});;
             boxProduct.appendChild(boxProductOldPrice);
 
             var boxProductPrice = document.createElement('p');
             boxProductPrice.classList.add('box-product__price');
-            boxProductPrice.innerHTML=product.price;
+            boxProductPrice.innerHTML='Por: '+product.price.toLocaleString("pt-BR", { style: "currency" , currency:"BRL"});;
             boxProduct.appendChild(boxProductPrice);
 
             var boxProductInstallments = document.createElement('p');
-            var installmentValue = product.installments.value.toLocaleString("pt-BR", { style: "currency" , currency:"BRL"})
+            var installmentValue = product.installments.value.toLocaleString("pt-BR", { style: "currency" , currency:"BRL"});
             var installmentsContent = 'ou '+product.installments.count+'x de '+ installmentValue;
             boxProductInstallments.classList.add('box-product__installments');
             boxProductInstallments.innerHTML=installmentsContent;
